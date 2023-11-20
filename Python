@@ -1,0 +1,141 @@
+# Import the attributes from ctuCLASS
+from ctuCLASS import ctuSTOCK
+
+# Define main function
+def main():
+    # Create four ctuSTOCK objects with default values
+    shop1 = ctuSTOCK("Shop 1", "Location 1", [], [], [])
+    shop2 = ctuSTOCK("Shop 2", "Location 2", [], [], [])
+    shop3 = ctuSTOCK("Shop 3", "Location 3", [], [], [])
+    shop4 = ctuSTOCK("Shop 4", "Location 4", [], [], [])
+
+    # Define main menu options
+    def main_menu():
+        """
+            Main Menu
+            1. Shop Management
+            2. Sales
+            3. Returns
+            4. Stock
+            99. Exit
+        """
+
+    # Define shop management menu options
+    def shop_mgmt_menu(): """
+    Shop Management Menu
+    1. Change Shop Name
+    2. Change Shop Location
+    3. Display Current Shops
+    4. Display All Shops Information
+    0. Back
+    """
+
+    # Define stock menu options
+    def  stock_menu(): """
+    Stock Menu
+    1. Display Stock
+    2. Add Stock
+    0. Back
+    """
+
+    # Start continuous user input loop
+    while True:
+        # Display main menu options and get user choice
+        print(main_menu)
+        choice = input("Enter your choice: ")
+
+        # Process user choice
+        if choice == "1":
+            # Shop Management Menu
+            while True:
+                # Display Shop Management Menu options and get user choice
+                def print(shop_mgmt_menu):
+                    choice = input("Enter your choice: ")
+
+                # Process user choice
+                if choice == "1":
+                    # Change Shop Name
+                     change_shop_name([shop1, shop2, shop3, shop4])
+                elif choice == "2":
+                    # Change Shop Location
+                    # TODO: Implement function to change shop location
+                    pass
+                elif choice == "3":
+                    # Display Current Shops
+                    # TODO: Implement function to display current shops
+                    pass
+                elif choice == "4":
+                    # Display All Shops Information
+                    # TODO: Implement function to display all shops information
+                    pass
+                elif choice == "0":
+                    # Back to Main Menu
+                    break
+                else:
+                    print("Invalid selection. Please try again.")
+
+        elif choice == "2":
+            # Sales Menu
+            # TODO: Implement function for Sales menu
+            pass
+
+        elif choice == "3":
+            # Returns Menu
+            # TODO: Implement function for Returns menu
+            pass
+
+        elif choice == "4":
+            # Stock Menu
+            while True:
+                # Display Stock Menu options and get user choice
+                print(stock_menu)
+                choice = input("Enter your choice: ")
+
+                # Process user choice
+                if choice == "1":
+                    # Display Stock
+                    # TODO: Implement function to display stock
+                    pass
+                elif choice == "2":
+                    # Add Stock
+                    # TODO: Implement function to add stock
+                    pass
+                elif choice == "0":
+                    # Back to Main Menu
+                    break
+                else:
+                    print("Invalid selection. Please try again.")
+
+        elif choice == "99":
+            # Exit
+            print("Exiting program...")
+            break
+
+        else:
+            print("Invalid selection. Please try again.")
+
+def change_shop_location(stock):
+    # Display current shops
+    display_current_shops(stock)
+
+    # Get user input for shop to change location
+    shop_idx = input("Enter the number of the shop to change location: ")
+
+    # Validate user input
+    try:
+        shop_idx = int(shop_idx)
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+
+    if shop_idx < 1 or shop_idx > len(stock):
+        print("Invalid shop number. Please try again.")
+        return
+
+    # Get new shop location from user
+    new_location = input("Enter the new location for the shop: ")
+
+    # Update shop location
+    stock[shop_idx - 1].shopLocation = new_location
+
+    print("Shop location updated successfully.")
